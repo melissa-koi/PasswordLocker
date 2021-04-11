@@ -8,10 +8,10 @@ class User:
         self.username = username
         self.password = password
 
-    def save_account(self):
+    def save_user(self):
         User.user_details.append(self)
 
-    def delete_account(self):
+    def delete_user(self):
         User.user_details.remove(self)
 
 class Account:
