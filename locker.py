@@ -14,4 +14,6 @@ class User:
     def delete_account(self):
         User.user_details.remove(self)
 
+class Account:
 
+    account_details = []
