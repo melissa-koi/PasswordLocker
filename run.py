@@ -85,7 +85,37 @@ def main():
             lgPassword = input()
 
             if search_username(lgUsername) and search_password(lgPassword):
-                print(f"Welcome {usernamePL} to your account!!\n")
+                print(f"Welcome {usernamePL} to your account!!")
+                while True:
+                    print(f"Select a short code: sa - store account credentials, ca - create account credentials, dc - display saved credentials, ex - to exit ,d - delete\n")
+                    next_code = input().lower()
+
+                    if next_code == 'sa':
+                        print("Account Username")
+                        a_username = input()
+                        print("Account Password")
+                        a_password = input()
+                        save_account(create_account(a_username,a_password))
+                        print(f"Creation of {a_username} account successful\n")
+
+                    elif next_code == 'dc':
+                        if display_accounts():
+                            print("Here is a list of all your account credentials")
+                            print('-'*20)
+                            for account in display_accounts():
+                                print(f"{account.user_account} ....... password: {account.password}")
+                        else:
+                            print("You don't seem to have any contacts saved yet\n")
+
+                    elif next_code == 'ex':
+                        print("Going to main...")
+                        SystemExit
+
+                    elif next_code == 'd':
+                        print("Enter account to delete")
+                        to_delete = input()
+                        if search_account
+
             else:
                 print("Incorrect login credentials\n")
 
