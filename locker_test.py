@@ -18,7 +18,12 @@ class TestAccount(unittest.TestCase):
         self.new_account.save_account()
         self.assertEqual(len(Account.account_details),1)
 
+    def test_save_multiple_accounts(self):
+        self.new_account.save_account()
+        test_account = Account("username2", "password2")
+        test_account.save_account()
 
+        self.assertEqual(len(Account.account_details),2)
 
     def test_delete_account(self):
         self.new_account.save_account()
