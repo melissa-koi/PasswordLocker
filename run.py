@@ -38,6 +38,10 @@ def delete_account(details):
 def display_accounts():
     return Account.display_accounts()
 
+def search_account_name(account_name):
+    return Account.find_account(account_name)
+
+
 
 def main():
 
@@ -85,9 +89,9 @@ def main():
             lgPassword = input()
 
             if search_username(lgUsername) and search_password(lgPassword):
-                print(f"Welcome {usernamePL} to your account!!")
+                print(f"Welcome {usernamePL} to your account!!\n")
                 while True:
-                    print(f"Select a short code: sa - store account credentials, ca - create account credentials, dc - display saved credentials, ex - to exit ,d - delete\n")
+                    print(f"Select a short code: sa - store account credentials, ca - create account credentials, dc - display saved credentials, ex - to exit ,d - delete")
                     next_code = input().lower()
 
                     if next_code == 'sa':
@@ -104,6 +108,7 @@ def main():
                             print('-'*20)
                             for account in display_accounts():
                                 print(f"{account.user_account} ....... password: {account.password}")
+                                print('-'*20)
                         else:
                             print("You don't seem to have any contacts saved yet\n")
 
@@ -114,7 +119,12 @@ def main():
                     elif next_code == 'd':
                         print("Enter account to delete")
                         to_delete = input()
-                        if search_account
+                        search_account = search_account_name(to_delete)
+                        if search_account:
+                            delete_account(search_account)
+                            print(f"{to_delete} account deleted")
+                        else:
+                            print(f"You don't seem to have {to_delete} account saved")
 
             else:
                 print("Incorrect login credentials\n")

@@ -52,6 +52,12 @@ class Account:
     def display_accounts(cls):
         return cls.account_details
 
+    @classmethod
+    def find_account(cls, account_name):
+        for name in cls.account_details:
+            if name.user_account == account_name:
+                return name
+
 
 
     def __str__(self):
