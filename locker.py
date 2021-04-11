@@ -18,8 +18,8 @@ class Account:
 
     account_details = []
 
-    def __init__(self, username, password):
-        self.username = username
+    def __init__(self, user_account, password):
+        self.user_account = user_account
         self.password = password
 
     def save_account(self):
@@ -27,3 +27,8 @@ class Account:
 
     def delete_account(self):
         Account.account_details.remove(self)
+
+    @classmethod
+    def display_contacts(cls):
+        return cls.account_details
+
