@@ -34,5 +34,5 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(len(Account.account_details),1)
 
     def test_display_all_accounts(self):
-        self.assertEqual(Account.display_contacts(), Account.account_details)
+        self.assertEqual(Account.display_accounts(), Account.account_details)
 

@@ -12,7 +12,7 @@ class TestAccount(unittest.TestCase):
         User.user_details = []
 
     def test_init(self):
-        self.assertEqual(self.new_user.username, "test_username")
+        self.assertEqual(self.new_user.user_name, "test_username")
         self.assertEqual(self.new_user.password, "test_password1")
 
     def test_save_user(self):
@@ -33,4 +33,12 @@ class TestAccount(unittest.TestCase):
 
         self.new_user.delete_user()
         self.assertEqual(len(User.user_details),1)
+
+    def test_username_exists(self):
+        self.new_user.save_user()
+        test_account = User("username2", "password2")
+        test_account.save_user()
+
+        found_username = User.find_by_username("username2")
+        self.assertEqual(found_username.user_name, test_account.user_name)
 
