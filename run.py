@@ -100,7 +100,7 @@ def main():
                         print("Account Password")
                         a_password = input()
                         save_account(create_account(a_username,a_password))
-                        print(f"Creation of {a_username} account successful\n")
+                        print(f"{a_username} account saved\n")
 
                     elif next_code == 'dc':
                         if display_accounts():
@@ -108,7 +108,7 @@ def main():
                             print('-'*20)
                             for account in display_accounts():
                                 print(f"{account.user_account} ....... password: {account.password}")
-                                print('-'*20)
+                            print('-'*20)
                         else:
                             print("You don't seem to have any contacts saved yet\n")
 
@@ -124,8 +124,23 @@ def main():
                             delete_account(search_account)
                             print(f"{to_delete} account deleted")
                         else:
-                            print(f"You don't seem to have {to_delete} account saved")
+                            print(f"You don't seem to have {to_delete} account saved\n")
 
+                    elif next_code == 'ca':
+                        print("Create username")
+                        ca_name = input()
+                        print("Enter gp - to generate a random password or cp - to put in your own password")
+                        ca_code = input()
+
+                        if ca_code == 'cp':
+                            print("Create Password")
+                            ca_password = input()
+                            save_account(create_account(ca_name, ca_password))
+                            print(f"Creation of {ca_name} account successful\n")
+
+                        # elif ca_code == 'gp'
+                    else:
+                        print("I didn't quite get that. Please use the short codes")
             else:
                 print("Incorrect login credentials\n")
 
