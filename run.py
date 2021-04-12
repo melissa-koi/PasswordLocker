@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 from locker import User
 from locker import Account
+import string
+import secrets
 
 #USER
 
@@ -138,7 +140,18 @@ def main():
                             save_account(create_account(ca_name, ca_password))
                             print(f"Creation of {ca_name} account successful\n")
 
-                        # elif ca_code == 'gp'
+                        elif ca_code == 'gp':
+                            print("What is your preferred length for the password?")
+                            glength = int(input())
+                            alphabet = string.ascii_letters + string.digits
+                            gPassword = ''.join(secrets.choice(alphabet) for i in range(glength))
+                            print(f"Generated password: {gPassword}")
+                            save_account(create_account(ca_name, gPassword))
+                            print(f"Creation of {ca_name} account successful\n")
+
+                        else:
+                            print("I didn't quite get that. Please use the short codes")
+
                     else:
                         print("I didn't quite get that. Please use the short codes")
             else:
@@ -150,11 +163,9 @@ def main():
             break
 
         else:
-            print("I really didn't get that. Please use the short codes")
-
+            print("I didn't quite get tchat. Please use the short codes\n")
 
 
 if __name__ == '__main__':
     main()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
