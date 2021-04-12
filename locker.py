@@ -57,14 +57,3 @@ class Account:
         for name in cls.account_details:
             if name.user_account == account_name:
                 return name
-
-
-
-    def __str__(self):
-        return f"a contact for {self.user_account} __str__"
-
-    def __repr__(self):
-        return f"a contact for {self.user_account} __repr__"
-
-    def __repr__(self):
-        return f"{self.__class__.__name__}({self.user_account}, {self.password!r})"

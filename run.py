@@ -61,7 +61,7 @@ def main():
             passwordPL = input()
 
             save_user(create_user(usernamePL, passwordPL))
-            print(f"Congratulations {usernamePL}, account creation successful\n")
+            print(f"Congratulations {usernamePL}, Password Locker account creation successful\n")
 
 
             print("Would you like to login? Enter y-proceed or n-exit")
@@ -88,7 +88,7 @@ def main():
 
                         elif next_code == 'dc':
                             if display_accounts():
-                                print("Here is a list of all your account credentials")
+                                print("Here is a list of all your account credentials:")
                                 print('-'*20)
                                 for account in display_accounts():
                                     print(f"{account.user_account} ....... password: {account.password}")
@@ -129,7 +129,7 @@ def main():
                                 gPassword = ''.join(secrets.choice(alphabet) for i in range(glength))
                                 print(f"Generated password: {gPassword}")
                                 save_account(create_account(ca_name, gPassword))
-                                print(f"Creation of {ca_name} account successful\n")
+                                print(f"Creation of {ca_name} account credentials successful\n")
 
                             else:
                                 print("I didn't quite get that. Please use the short codes")
@@ -153,7 +153,7 @@ def main():
             lgPassword = input()
 
             if search_username(lgUsername) and search_password(lgPassword):
-                print(f"Welcome {usernamePL} to your account!!\n")
+                print(f"Welcome {lgUsername} to your account!!\n")
                 while True:
                     print(f"Select a short code: sa - store account credentials, ca - create account credentials, dc - display saved credentials, ex - to exit ,d - delete")
                     next_code = input().lower()

@@ -34,11 +34,18 @@ class TestAccount(unittest.TestCase):
         self.new_user.delete_user()
         self.assertEqual(len(User.user_details),1)
 
-    def test_username_exists(self):
+    def test_find_by_username(self):
         self.new_user.save_user()
         test_account = User("username2", "password2")
         test_account.save_user()
 
         found_username = User.find_by_username("username2")
-        self.assertEqual(found_username.user_name, test_account.user_name)
+        self.assertEqual(found_username, test_account.user_name)
 
+    def test_find_by_password(self):
+        self.new_user.save_user()
+        test_account = User("username2", "password2")
+        test_account.save_user()
+
+        found_password = User.find_by_password("password2")
+        self.assertEqual(found_password, test_account.password)
