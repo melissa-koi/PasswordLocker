@@ -74,6 +74,68 @@ def main():
 
                 if search_username(lgUsername) and search_password(lgPassword):
                     print(f"Welcome {usernamePL} to your account!!\n")
+                    while True:
+                        print(f"Select a short code: sa - store account credentials, ca - create account credentials, dc - display saved credentials, ex - to exit ,d - delete")
+                        next_code = input().lower()
+
+                        if next_code == 'sa':
+                            print("Account Username")
+                            a_username = input()
+                            print("Account Password")
+                            a_password = input()
+                            save_account(create_account(a_username,a_password))
+                            print(f"{a_username} account saved\n")
+
+                        elif next_code == 'dc':
+                            if display_accounts():
+                                print("Here is a list of all your account credentials")
+                                print('-'*20)
+                                for account in display_accounts():
+                                    print(f"{account.user_account} ....... password: {account.password}")
+                                print('-'*20)
+                            else:
+                                print("You don't seem to have any contacts saved yet\n")
+
+                        elif next_code == 'ex':
+                            print("Going to main...\n")
+                            break
+
+                        elif next_code == 'd':
+                            print("Enter account to delete")
+                            to_delete = input()
+                            search_account = search_account_name(to_delete)
+                            if search_account:
+                                delete_account(search_account)
+                                print(f"{to_delete} account deleted")
+                            else:
+                                print(f"You don't seem to have {to_delete} account saved\n")
+
+                        elif next_code == 'ca':
+                            print("Create username")
+                            ca_name = input()
+                            print("Enter gp - to generate a random password or cp - to put in your own password")
+                            ca_code = input()
+
+                            if ca_code == 'cp':
+                                print("Create Password")
+                                ca_password = input()
+                                save_account(create_account(ca_name, ca_password))
+                                print(f"Creation of {ca_name} account successful\n")
+
+                            elif ca_code == 'gp':
+                                print("What is your preferred length for the password?")
+                                glength = int(input())
+                                alphabet = string.ascii_letters + string.digits
+                                gPassword = ''.join(secrets.choice(alphabet) for i in range(glength))
+                                print(f"Generated password: {gPassword}")
+                                save_account(create_account(ca_name, gPassword))
+                                print(f"Creation of {ca_name} account successful\n")
+
+                            else:
+                                print("I didn't quite get that. Please use the short codes")
+
+                        else:
+                            print("I didn't quite get that. Please use the short codes")
                 else:
                     print("Incorrect login credentials\n")
 
@@ -163,7 +225,7 @@ def main():
             break
 
         else:
-            print("I didn't quite get tchat. Please use the short codes\n")
+            print("I didn't quite get that. Please use the short codes\n")
 
 
 if __name__ == '__main__':
