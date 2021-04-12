@@ -83,5 +83,6 @@ class TestAccount(unittest.TestCase):
         Account.copy_account_name("test_user_account")
         self.assertEqual(self.new_account.user_account, pyperclip.paste())
 
+
 if __name__ == '__main__':
     unittest.main()

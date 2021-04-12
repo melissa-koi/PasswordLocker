@@ -1,6 +1,6 @@
 import unittest
 from locker import User
-import pyperclip
+
 
 class TestAccount(unittest.TestCase):
     """
@@ -80,6 +80,7 @@ class TestAccount(unittest.TestCase):
 
         found_password = User.find_by_password("password2")
         self.assertEqual(found_password, test_account.password)
+
 
 if __name__ == '__main__':
     unittest.main()
