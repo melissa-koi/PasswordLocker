@@ -113,8 +113,8 @@ def main():
                             print("You don't seem to have any contacts saved yet\n")
 
                     elif next_code == 'ex':
-                        print("Going to main...")
-                        SystemExit
+                        print("Going to main...\n")
+                        break
 
                     elif next_code == 'd':
                         print("Enter account to delete")
