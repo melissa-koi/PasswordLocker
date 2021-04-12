@@ -11,7 +11,8 @@ This is an application that will help us manage our passwords and even generate 
 * Python3.8
 * Pycharm
 * pip python3
-* xclip and xcel
+* xclip ,xcel and pyperclip
+* pep8
 
 ## Setup
 You will need:
