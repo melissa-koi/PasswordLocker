@@ -7,40 +7,67 @@ import secrets
 #USER
 
 def create_user(usernameN, passwordN):
+    """
+    Function to create a new user
+    """
     new_user = User(usernameN, passwordN)
     return new_user
 
 def save_user(credentials):
+    """
+    Function to save user
+    """
     credentials.save_user()
 
 def delete_user(credentials):
+    """
+    Function to delete a user
+    """
     credentials.delete_user()
 
-def user_exist(user):
-    return User.user_exists(user)
-
 def search_username(user):
+    """
+    Function to find user using username
+    """
     return User.find_by_username(user)
 
 def search_password(user):
+    """
+    Function to find user using password
+    """
     return User.find_by_password(user)
 
 #ACCOUNTS
 
 def create_account(username, password):
+    """
+    Function to create a new account
+    """
     new_account = Account(username, password)
     return new_account
 
 def save_account(details):
+    """
+    Function to save account
+    """
     details.save_account()
 
 def delete_account(details):
+    """
+    Function to delete an account
+    """
     details.delete_account()
 
 def display_accounts():
+    """
+    Function that returns all the saved accounts
+    """
     return Account.display_accounts()
 
 def search_account_name(account_name):
+    """
+    Function to find an account using account_name
+    """
     return Account.find_account(account_name)
 
 
@@ -61,7 +88,7 @@ def main():
             passwordPL = input()
 
             save_user(create_user(usernamePL, passwordPL))
-            print(f"Congratulations {usernamePL}, Password Locker account creation successful\n")
+            print(f"Congratulations {usernamePL}, Password Locker account creation successful!\n")
 
 
             print("Would you like to login? Enter y-proceed or n-exit")
