@@ -220,7 +220,7 @@ def main():
                         search_account = search_account_name(to_delete)
                         if search_account:
                             delete_account(search_account)
-                            print(f"{to_delete} account deleted")
+                            print(f"{to_delete} account deleted\n")
                         else:
                             print(f"You don't seem to have {to_delete} account saved\n")
 

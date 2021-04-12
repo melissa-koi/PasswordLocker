@@ -26,6 +26,7 @@ You will need:
 * Open Terminal.
 * Type git clone, and then paste the URL you copied earlier.
 * Press Enter to create your local clone.
+* Open cloned folder using pycharm.  
 * Run the file named run.py
 
 ## [License](https://github.com/melissa-koi/PasswordLocker/blob/main/LICENSE)
